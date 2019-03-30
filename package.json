@@ -1,7 +1,7 @@
 {
   "name": "pattern-matching-ts",
-  "version": "1.0.0-alpha",
-  "description": "A simple &amp; ambitionless pattern matching library for TypeScript!",
+  "version": "1.0.0",
+  "description": "A simple &amp; ambitionless pattern matching library built with TypeScript!",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -14,7 +14,9 @@
     "TypeScript"
   ],
   "scripts": {
+    "build": "tsc",
     "test": "npm run format && npm run lint && jest",
+    "test:ci": "jest",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "format": "prettier --write \"{src, test}/**/*.ts\""
   },
@@ -50,11 +52,11 @@
   "devDependencies": {
     "@types/jest": "^23.3.13",
     "jest": "^24.0.0",
-    "prettier": "^1.16.3",
+    "prettier": "^1.16.4",
     "ts-jest": "^23.10.5",
     "ts-node": "^8.0.3",
-    "tslint": "^5.12.1",
-    "tslint-config-prettier": "^1.17.0",
+    "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.1"
   }
 }
