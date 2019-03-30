@@ -36,4 +36,4 @@ const throwError = <TResult>(): TResult => {
   throw new Error("Error: No pattern matched. Please use a wildcard pattern.");
 };
 
-export { Condition, Execution, Pattern, when, match };
+export { when, match };

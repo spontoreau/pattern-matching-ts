@@ -1,7 +1,4 @@
 import {
-    Condition,
-    Execution,
-    Pattern,
     when,
     match
 } from "../src/match";
@@ -9,8 +6,8 @@ import {
 describe("Patter matching tests", () => {
     it("Should return a pattern when combining a condition and an execution", () => {
         // Arrange
-        const condition: Condition<number> = (x: number) => true;
-        const execution: Execution<number, string> = (x: number) => x.toString(); 
+        const condition = (x: number) => true;
+        const execution = (x: number) => x.toString(); 
 
         const expected = {
             condition,
