@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "sourceMap": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "outDir": "./lib",
+    "declaration": true
   },
   "include": ["./src/**/*.ts"]
 }
