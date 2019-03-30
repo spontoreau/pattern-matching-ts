@@ -7,8 +7,10 @@ type Pattern<TValue, TResult> = {
   execution: Execution<TValue, TResult>;
 };
 
-const when = <TValue, TResult>(condition: Condition<TValue>) => {
-  return (execution: Execution<TValue, TResult>) => {
+const when = <TValue>(condition: Condition<TValue>) => {
+  return <TResult>(
+    execution: Execution<TValue, TResult>
+  ): Pattern<TValue, TResult> => {
     return {
       condition,
       execution
@@ -16,9 +18,9 @@ const when = <TValue, TResult>(condition: Condition<TValue>) => {
   };
 };
 
-const match = <TValue, TResult>(value: TValue) => (
+const match = <TValue>(value: TValue) => <TResult>(
   ...patterns: Array<Pattern<TValue, TResult>>
-) => (defaultExecute?: Execution<TValue, TResult>) => {
+) => (defaultExecute?: Execution<TValue, TResult>): TResult => {
   const filteredPatterns = patterns.filter(
     (pattern: Pattern<TValue, TResult>) => pattern.condition(value)
   );

@@ -30,9 +30,9 @@ describe("Patter matching tests", () => {
 
         // Act
         const actual = match(1337)(
-            when(v => v === 42)(v => 1337),
-            when(v => v === 1337)(v => 42)
-        )(_ => _);
+            when((v) => v === 42)(v => 1337),
+            when((v) => v === 1337)(v => 42)
+        )();
 
         // Assert
         expect(actual).toEqual(expected);
@@ -40,13 +40,13 @@ describe("Patter matching tests", () => {
 
     it("Should return a default result when no patterns are matched and a wildcare is defined", () => {
         // Arrange
-        const expected = 9;
+        const expected = "9";
 
         // Act
         const actual = match(1)(
-            when(v => v === 42)(v => 1337),
-            when(v => v === 1337)(v => 42)
-        )( _ => 9);
+            when((v) => v === 42)(v => "1337"),
+            when((v) => v === 1337)(v => "42")
+        )(_ => "9");
 
         // Assert
         expect(actual).toEqual(expected);
@@ -54,7 +54,7 @@ describe("Patter matching tests", () => {
 
     it("Should return an error when no patterns are matched and no wildcare is defined", () => {
         expect(() => {
-            match(1)(
+            const result = match(1)(
                 when(v => v === 42)(v => 1337),
                 when(v => v === 1337)(v => 42)
             )()
