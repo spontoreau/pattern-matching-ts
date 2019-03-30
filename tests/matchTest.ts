@@ -1,7 +1,7 @@
 import {
     when,
     match
-} from "../src/match";
+} from "../src";
 
 describe("Patter matching tests", () => {
     it("Should return a pattern when combining a condition and an execution", () => {
